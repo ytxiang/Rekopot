@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS RekopotDB.CloudImages;
+DROP TABLE IF EXISTS RekopotDB.Account;

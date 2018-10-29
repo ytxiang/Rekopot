@@ -1,0 +1,56 @@
+server:
+  port:
+  ssl:
+    enabled:
+    protocol:
+    key-store:
+    key-store-password:
+    keyStoreType:
+    keyAlias:
+
+spring:
+  datasource:
+    driverClassName:
+  jpa:
+    hibernate:
+      ddl-auto:
+    properties:
+      hibernate:
+        dialect:
+    show-sql:
+  profiles:
+    active: "@spring.profiles.active@"
+  thymeleaf:
+    check-template-location: true
+    prefix: classpath:/templates/thymeleaf/
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration,org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+
+rekopot:
+  admin:
+    account:
+    password:
+  aws:
+    region:
+  s3:
+    region:
+    bucket:
+    namespace:
+    baseurl:
+    access:
+      id:
+      secret:
+  rds:
+    driver:
+    url:
+    username:
+    password:
+
+facebook:
+  client:
+    clientId:
+    clientSecret:
