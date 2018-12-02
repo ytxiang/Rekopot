@@ -194,12 +194,12 @@ public class RekopotServiceImpl implements RekopotService {
 		PutObjectResult poResult = s3Client.putObject(S3_BUCKET, key, file);
 
 		if (updateNotes) {
-
 			String plateNumber = licensePlateParser.detectLicensePlateNumber(S3_BUCKET, key);
-			if (!plateNumber.trim().equals("")) {
+			if (!StringUtils.isNullOrEmpty(plateNumber)) {
 				notes = new String(plateNumber);
-			} else {
-				notes = "<empty license plate number>";
+				String plateState = licensePlateParser.detectLicensePlateState(S3_BUCKET, key, false);
+				if (!StringUtils.isNullOrEmpty(plateState))
+					notes = plateState + "/" + notes;
 			}
 		}
 
@@ -338,11 +338,16 @@ public class RekopotServiceImpl implements RekopotService {
 		}
 
 		String plateNumber = licensePlateParser.detectLicensePlateNumber(S3_BUCKET, userFile.getPath());
-		if (!StringUtils.isNullOrEmpty(plateNumber)) {
-			userFile.setNotes(plateNumber);
-		} else {
+		if (StringUtils.isNullOrEmpty(plateNumber)) {
 			throw new ValidationException("Empty Plate Number");
 		}
+
+		boolean abbr = force;
+		String plateState = licensePlateParser.detectLicensePlateState(S3_BUCKET, userFile.getPath(), abbr);
+		if (!StringUtils.isNullOrEmpty(plateState))
+			plateNumber = plateState + (abbr ? "-" : "/") + plateNumber;
+
+		userFile.setNotes(plateNumber);
 		s3FileDao.createOrUpdate(userFile);
 	}
 

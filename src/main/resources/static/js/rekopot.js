@@ -124,12 +124,15 @@ function fileUpdate(name) {
 
 function fileExtract(name) {
     $("span[name='" + name + "']").click(function (e) {
-	var force;
-        if (false == confirm("Are you sure to overwrite existing description ?"))
-            return;
-	deactivate();
-	force = (e.ctrlKey) ? 1 : 0;
 
+	var notes = $(this).parent().parent().find("#cancel").attr("data");
+	if (notes && notes.length > 0 &&
+	    false == confirm("Are you sure to overwrite existing description ?"))
+            return;
+
+	deactivate();
+
+	var force = (e.ctrlKey) ? 1 : 0;
         $.ajax({
             type: 'POST',
             url: $(this).attr("data"),

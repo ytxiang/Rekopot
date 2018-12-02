@@ -6,7 +6,11 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,15 +34,20 @@ import com.amazonaws.services.rekognition.model.TextDetection;
 import com.amazonaws.regions.*;
 import com.amazonaws.util.IOUtils;
 
+import edu.sjsu.cmpe281.service.State;
+
 public class LicensePlateParser {
 
 	AWSCredentialsProvider credProvider;
 
 	Regions region;
 
+	Set<String> allStates;
+
 	public LicensePlateParser(AWSCredentialsProvider credProvider, Regions region) {
 		this.credProvider = credProvider;
 		this.region = region;
+		allStates = State.asSet();
 	}
 
 	public float isLicensePlate(File file) throws IOException, ValidationException {
@@ -96,6 +105,74 @@ public class LicensePlateParser {
 
 	}
 
+	private static String formalize(String state, boolean abbr) {
+		State s = State.valueOfName(state);
+
+		if (s == null)
+			return "";
+		return abbr ? s.getAbbreviation() : s.getName();
+	}
+
+	public String detectLicensePlateState(String bucketName, String filePath, boolean abbr) {
+
+		AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.standard()
+				.withRegion(region).withCredentials(credProvider).build();
+
+		DetectTextRequest textRequest = new DetectTextRequest()
+				.withImage(new Image().withS3Object(new S3Object().withName(filePath).withBucket(bucketName)));
+
+		try {
+			DetectTextResult textResult = rekognitionClient.detectText(textRequest);
+			List<TextDetection> textDetections = textResult.getTextDetections();
+			HashMap<String, HashSet<String>> map = new HashMap<>();
+			HashSet<String> set;
+			String cleanedText;
+
+			for (TextDetection text : textDetections) {
+				cleanedText = text.getDetectedText().replaceAll("[0-9]+", "").toUpperCase();
+
+				//System.out.println("detectLicensePlateState: " + cleanedText);
+				if (text.getType().equals("LINE") && allStates.contains(cleanedText)) {
+					return formalize(cleanedText, abbr);
+				}
+				nextState:
+				for (String state : allStates) {
+					if (!state.contains(" ")) {
+						if (text.getType().equals("WORD") && cleanedText.contains(state))
+							return formalize(state, abbr);
+						continue;
+					}
+					if (text.getType().equals("WORD")) {
+						if (Arrays.asList(state.split(" ")).contains(cleanedText)) {
+							set = map.getOrDefault(state, new HashSet<String>());
+							set.add(cleanedText);
+							map.put(state, set);
+						}
+						continue;
+					}
+					String[] keywords = state.replaceAll("\\.", "")
+								 .replaceAll("\\b\\w{1,3}\\b\\s?", "")
+								 .split(" ");
+					 for (String k : keywords) {
+						 if (!cleanedText.contains(k))
+							continue nextState;
+					 }
+					 return formalize(state, abbr);
+				}
+			}
+			if (map.size() != 0) {
+				for (String state : map.keySet()) {
+					if (state.split(" ").length == map.get(state).size())
+						return formalize(state, abbr);
+				}
+			}
+		} catch (AmazonRekognitionException e) {
+			e.printStackTrace();
+			System.out.println("bucketName: " + bucketName + ", filePath: " + filePath);
+		}
+
+		return "";
+	}
 
 	/**
 	 * Kevin Lai
