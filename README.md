@@ -39,4 +39,35 @@ R53, EC2, Rekognition, RDS, S3, S3 Transfer Acceleration, Glacier, CloudFront,  
 Spring Boot, AWS toolkit for Eclipse, Maven, Hibernate, JQuery, Thymeleaf
 
 
+### Pre-requisites Set Up
+1. AWS services
+In your AWS cloud account, please configure the following services as the smallest set to run this project:
+R53, EC2, S3 bucket, RDS, CloudFront
+
+2. Required softwares to download
+Spring Boot, Eclipse(With AWS toolkit), JDK1.8, Maven 
+Other softwares/plugins will be downloaded by Maven based on the dependency file pom.xml.
+
+### How to set up and run locally
+1. Install maven, jdk8, git
+sudo yum install -y maven
+sudo yum install -y java-1.8.0-openjdk-headless.x86_64
+sudo yum install -y git
+
+2. Git clone
+git clone https://github.com/ytxiang/Rekopot.git
+
+3. Modify application.yaml and copy keystore.p12
+
+4. Make build
+[ec2-user@ip-172-31-34-102 Rekopot]$ ls
+db-data.sql  db-remove.sql  db-schema.sql  pom.xml  README.md  src
+[ec2-user@ip-172-31-34-102 Rekopot]$ mvn package
+
+5. Start the jar package
+[ec2-user@ip-172-31-34-102 target]$ ls
+classes  generated-sources  maven-archiver  maven-status  RekoPot-0.0.1.jar  RekoPot-0.0.1.jar.original
+
+[ec2-user@ip-172-31-34-102 target]$ sudo java -jar ./RekoPot-0.0.1.jar
+
 ### Sample Demo Screenshots
