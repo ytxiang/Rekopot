@@ -78,30 +78,50 @@ $ sudo java -jar ./RekoPot-0.0.1.jar
 ### Sample Demo Screenshots
 
 - New User Registration Page
-![Fig.1 User signup Form](https://github.com/ytxiang/Filepot-CICD/raw/master/register.png)
+![Fig.1 User signup Form](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/signup1.png)
 
 
 - User Signup Success Page
-![Fig.2 User signed up](https://github.com/ytxiang/Filepot-CICD/raw/master/signed-up.png)
+![Fig.2 User signed up](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/signup2.png)
 
 
 - User Login Page
-![Fig.3 Login Page](https://github.com/ytxiang/Filepot-CICD/raw/master/login.png)
+![Fig.3 Login Page](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/userlogin.png)
 
 
-- Over 10MB File Uploading Failure
-![Fig.4 10MB File Size](https://github.com/ytxiang/Filepot-CICD/raw/master/over-10mb-upload-fail.png)
+- Facebook Login Page
+![Fig.4 Facebook Login Page](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/facebooklogin.png)
 
 
-- File List Page
+- Upload/Extract/List Images Page
 
-![Fig.5 File List Page](https://github.com/ytxiang/Filepot-CICD/raw/master/uploaded.png)
-
-
-- File Deletion Page
-![Fig.6 File Deletion Page](https://github.com/ytxiang/Filepot-CICD/raw/master/to-delete.png)
+![Fig.5 Upload/Extract/List Images Page](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/extract.png)
 
 
-- User Logout Page
-![Fig.7 User logout](https://github.com/ytxiang/Filepot-CICD/raw/master/to-logout.png)
+- Non Plate Images Error Handling Page
+![Fig.6 Non Plate Images Error Handling Page](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/nonplateimages.png)
+
+
+- Delete Images Page
+![Fig.7 Delete Images Page](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/deleteimages.png)
+
+
+- Save Non Plate Images Page
+![Fig.8 Save Non Plate Images Page](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/savenonplate.png)
+
+
+- Update Detected Tags Page
+![Fig.9 Update Detected Tags Page](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/updatetags.png)
+
+
+- Admin List Images Page
+![Fig.10 Admin List Images Page](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/adminlistfiles.png)
+
+
+- Admin Search Users' Images Page
+![Fig.11 Admin Search Users' Images Page](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/adminsearchuser.png)
+
+
+- Admin Delete Users' Images Page
+![Fig.12 Admin Delete Users' Images Page](https://raw.githubusercontent.com/ytxiang/Rekopot/master/images/admindeletefile.png)
 
