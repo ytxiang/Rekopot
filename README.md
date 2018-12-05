@@ -61,13 +61,44 @@ git clone https://github.com/ytxiang/Rekopot.git
 
 4. Make build
 [ec2-user@ip-172-31-34-102 Rekopot]$ ls
+
 db-data.sql  db-remove.sql  db-schema.sql  pom.xml  README.md  src
 [ec2-user@ip-172-31-34-102 Rekopot]$ mvn package
 
 5. Start the jar package
 [ec2-user@ip-172-31-34-102 target]$ ls
+
 classes  generated-sources  maven-archiver  maven-status  RekoPot-0.0.1.jar  RekoPot-0.0.1.jar.original
 
 [ec2-user@ip-172-31-34-102 target]$ sudo java -jar ./RekoPot-0.0.1.jar
 
 ### Sample Demo Screenshots
+
+- New User Registration Page
+![Fig.1 User signup Form](https://github.com/ytxiang/Filepot-CICD/raw/master/register.png)
+
+
+- User Signup Success Page
+![Fig.2 User signed up](https://github.com/ytxiang/Filepot-CICD/raw/master/signed-up.png)
+
+
+- User Login Page
+![Fig.3 Login Page](https://github.com/ytxiang/Filepot-CICD/raw/master/login.png)
+
+
+- Over 10MB File Uploading Failure
+![Fig.4 10MB File Size](https://github.com/ytxiang/Filepot-CICD/raw/master/over-10mb-upload-fail.png)
+
+
+- File List Page
+
+![Fig.5 File List Page](https://github.com/ytxiang/Filepot-CICD/raw/master/uploaded.png)
+
+
+- File Deletion Page
+![Fig.6 File Deletion Page](https://github.com/ytxiang/Filepot-CICD/raw/master/to-delete.png)
+
+
+- User Logout Page
+![Fig.7 User logout](https://github.com/ytxiang/Filepot-CICD/raw/master/to-logout.png)
+
