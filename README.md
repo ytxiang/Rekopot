@@ -50,27 +50,30 @@ Other softwares/plugins will be downloaded by Maven based on the dependency file
 
 ### How to set up and run locally
 1. Install maven, jdk8, git
-sudo yum install -y maven
-sudo yum install -y java-1.8.0-openjdk-headless.x86_64
-sudo yum install -y git
+$ sudo yum install -y maven
+$ sudo yum install -y java-1.8.0-openjdk-headless.x86_64
+$ sudo yum install -y git
 
 2. Git clone
-git clone https://github.com/ytxiang/Rekopot.git
+$ git clone https://github.com/ytxiang/Rekopot.git
 
-3. Modify application.yaml and copy keystore.p12
+3. Modify application.yaml and create a keystore file
 
-4. Make build
-[ec2-user@ip-172-31-34-102 Rekopot]$ ls
+$ keytool -genkey
+    -keystore keystore.p12
+    -storetype PKCS12 
+    -keyalg RSA 
+    -storepass <password> 
+    -validity 730 
+    -keysize 2048 
+  
+4. Compile and make a package
 
-db-data.sql  db-remove.sql  db-schema.sql  pom.xml  README.md  src
-[ec2-user@ip-172-31-34-102 Rekopot]$ mvn package
+$ mvn package
 
 5. Start the jar package
-[ec2-user@ip-172-31-34-102 target]$ ls
 
-classes  generated-sources  maven-archiver  maven-status  RekoPot-0.0.1.jar  RekoPot-0.0.1.jar.original
-
-[ec2-user@ip-172-31-34-102 target]$ sudo java -jar ./RekoPot-0.0.1.jar
+$ sudo java -jar ./RekoPot-0.0.1.jar
 
 ### Sample Demo Screenshots
 
