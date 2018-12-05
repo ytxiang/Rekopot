@@ -11,13 +11,13 @@ Students: Yunting Xiang, Junteng Tan, Sangwon Song, Kevin Lai</br>
 ### Rekopot Introduction
 This project aims to create a 3 tier web application which is able to provide highly available, highly scalable license plate storage and recognition service. The AWS cloud services are utilized to accelerate the development, build, test and deployment of this project. The following functions are implemented:
 
-1.User registration
-2.User login/logout
-3.Facebook login integration
-4.Upload/delete/list license plate images
-5.Different handling to plate images and non-plate images
-6.Plate number extraction, Plate state name extraction
-7.Detected tags modification/saving/cancellation 
+1. User registration
+2. User login/logout
+3. Facebook login integration
+4. Upload/delete/list license plate images
+5. Different handling to plate images and non-plate images
+6. Plate number extraction, Plate state name extraction
+7. Detected tags modification/saving/cancellation 
 8. Admin management
 
 ### Feature List
@@ -71,7 +71,7 @@ $ keytool -genkey
 
 $ mvn package
 
-5. Start the jar package
+5. Launch the RekoPot application
 
 $ sudo java -jar ./RekoPot-0.0.1.jar
 
