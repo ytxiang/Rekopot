@@ -50,11 +50,15 @@ Other softwares/plugins will be downloaded by Maven based on the dependency file
 
 ### How to set up and run locally
 1. Install maven, jdk8, git
+
 $ sudo yum install -y maven
+
 $ sudo yum install -y java-1.8.0-openjdk-headless.x86_64
+
 $ sudo yum install -y git
 
 2. Git clone
+
 $ git clone https://github.com/ytxiang/Rekopot.git
 
 3. Modify application.yaml and create a keystore file
