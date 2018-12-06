@@ -6,7 +6,7 @@ University Name: http://www.sjsu.edu/</br>
 Course: [Cloud Technologies](http://info.sjsu.edu/web-dbgen/catalog/courses/CMPE281.html)</br>
 Professor: [Sanjay Garje](https://www.linkedin.com/in/sanjaygarje/)</br>
 ISA: [Anushri Srinath Aithal ](https://www.linkedin.com/in/anushri-aithal/)</br>
-Students: Yunting Xiang, [Junteng Tan](https://www.linkedin.com/in/junteng-t29991755), Sangwon Song, Kevin Lai</br>
+Students: Yunting Xiang, [Junteng Tan](https://www.linkedin.com/in/junteng-t-29991755/), Sangwon Song, Kevin Lai</br>
 
 ### Rekopot Introduction
 This project aims to create a 3 tier web application which is able to provide highly available, highly scalable license plate storage and recognition service. The AWS cloud services are utilized to accelerate the development, build, test and deployment of this project. The following functions are implemented:
