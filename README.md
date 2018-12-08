@@ -32,20 +32,28 @@ This project aims to create a 3 tier web application which is able to provide hi
 
 
 ### The adopted technologies:
-1. AWS services:
+1. AWS services</br>
 R53, EC2, Rekognition, RDS, S3, S3 Transfer Acceleration, Glacier, CloudFront,  AutoScaling Group, ELB,  CodePipeline, CodeCommit, CodeBuild, Beanstalk, CloudWatch, SNS
 
-2. Development tools/library:
+2. Development tools/library</br>
 Spring Boot, AWS toolkit for Eclipse, Maven, Hibernate, JQuery, Thymeleaf
 
 
 ### Pre-requisites Set Up
 1. AWS services
-In your AWS cloud account, please configure the following services as the smallest set to run this project:
-R53, EC2, S3 bucket, RDS, CloudFront
+
+In your AWS cloud account, please configure the following services as the smallest set to run this project</br>
+R53</br>
+EC2</br>
+S3 bucket</br>
+RDS</br>
+CloudFront</br>
 
 2. Required softwares to download
-Spring Boot, Eclipse(With AWS toolkit), JDK1.8, Maven 
+
+Spring BootEclipse(With AWS toolkit)</br>
+JDK1.8</br>
+Maven</br>
 Other softwares/plugins will be downloaded by Maven based on the dependency file pom.xml.
 
 ### How to set up and run locally
